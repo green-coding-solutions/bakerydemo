@@ -252,6 +252,11 @@ figure img {
   height: auto;
 }
 
+/* Overriding Bootstrap's default caption styles */
+caption {
+  color: var(--dark);
+}
+
 /* Generic detail page styles */
 .intro {
   font-family: var(--font--secondary);
@@ -402,10 +407,12 @@ blockquote .attribute-name {
   color: var(--dark);
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
-.block-paragraph_block a {
+/* stylelint-disable selector-class-pattern */
+.block-paragraph_block a,
+.block-ingredients_list a {
   text-decoration: underline;
 }
+/* stylelint-enable selector-class-pattern */
 
 /* stylelint-disable-next-line selector-class-pattern */
 .block-embed_block iframe {
@@ -446,6 +453,18 @@ blockquote .attribute-name {
   width: 100%;
   background: var(--white);
   z-index: 10;
+}
+
+.skip-link {
+  z-index: 20;
+  position: absolute;
+  top: -100%;
+  padding: 20px;
+  background-color: var(--white);
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 .index-header__title {
@@ -740,38 +759,6 @@ blockquote .attribute-name {
     height: 42px;
     background-color: var(--border-grey);
   }
-}
-
-.dropdown-menu {
-  background-color: var(--cream);
-  border-radius: 0;
-  border: transparent;
-}
-
-.dropdown-menu > li > a {
-  border-bottom: 1px solid var(--border-grey);
-  color: var(--dark);
-  font-family: var(--font--secondary);
-  padding: 10px 20px;
-}
-
-.dropdown-menu > li > a:hover {
-  text-decoration: underline;
-}
-
-/* Menu dropdown hack to allow toggling */
-li.has-submenu a.allow-toggle {
-  float: left;
-  padding-right: 0;
-}
-
-.caret-custom {
-  float: right;
-  padding: 10px 10px 15px 5px !important;
-}
-
-.caret-custom::after {
-  content: '▼' !important;
 }
 
 /* Mobile menu styling */
