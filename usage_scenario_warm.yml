@@ -13,6 +13,12 @@ services:
     # we need the DB fully booted. Therefore we wait here a little
     setup-commands:
       - sleep 10
+    networks:
+      - bakery-internal-network
+
+  redis:
+    networks:
+      - bakery-internal-network
 
   app:
     environment:
@@ -29,6 +35,8 @@ services:
         # it would not tell us if these are the known images or some other problems with the sever occured.
         # Sadly this call is very flaky and might still show up as successful even if cache warmup did not really work :(
         # PRs welcome!
+    networks:
+      - bakery-internal-network
 
   green-coding-puppeteer-container:
     image: greencoding/puppeteer-chrome
@@ -39,6 +47,12 @@ services:
       - cp /tmp/repo/benchmark/puppeteer/homepage-landing.js /var/www/homepage-landing.js
       - cp /tmp/repo/benchmark/puppeteer/search.js /var/www/search.js
       - cp /tmp/repo/benchmark/puppeteer/package.json /var/www/package.json
+    networks:
+      - bakery-internal-network
+
+networks:
+  bakery-internal-network:
+    internal: true
 
 flow:
   - name: Blog filtering
