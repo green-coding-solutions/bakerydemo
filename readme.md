@@ -121,7 +121,7 @@ docker compose logs -f
 
 ## Setup with Virtualenv
 
-You can run the Wagtail demo locally without setting up Vagrant or Docker and simply use Virtualenv, which is the [recommended installation approach](https://docs.djangoproject.com/en/5.1/topics/install/#install-the-django-code) for Django itself.
+You can run the Wagtail demo locally without setting up Vagrant or Docker and simply use Virtualenv, which is the [recommended installation approach](https://docs.djangoproject.com/en/stable/topics/install/#install-the-django-code) for Django itself.
 
 #### Dependencies
 
@@ -217,7 +217,7 @@ In production on your own site, you'll need to change this to:
 
 `EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'`
 
-and configure [SMTP settings](https://docs.djangoproject.com/en/3.2/topics/email/#smtp-backend) appropriate for your email provider.
+and configure [SMTP settings](https://docs.djangoproject.com/en/stable/topics/email/#smtp-backend) appropriate for your email provider.
 
 ### Testing Content-Security-Policy compliance in Wagtail
 
@@ -229,24 +229,12 @@ By default, `django-csp` is not enabled since Wagtail isn't fully compatible yet
 
 The `main` branch of this demo is designed to work with both the latest stable release and the latest `main` branch (development version) of Wagtail. To run the demo against a specific version of Wagtail, we have created [git tags](https://github.com/wagtail/bakerydemo/tags) for the latest commits that work with each feature release.
 
+- [`v6.3`](https://github.com/wagtail/bakerydemo/releases/tag/v6.3)
 - [`v6.2`](https://github.com/wagtail/bakerydemo/releases/tag/v6.2)
 - [`v6.1`](https://github.com/wagtail/bakerydemo/releases/tag/v6.1)
 - [`v6.0`](https://github.com/wagtail/bakerydemo/releases/tag/v6.0)
-- [`v5.2`](https://github.com/wagtail/bakerydemo/releases/tag/v5.2)
 
-<details>
-
-<summary>Older tags</summary>
-
-- [`v5.1`](https://github.com/wagtail/bakerydemo/releases/tag/v5.1)
-- [`v5.0`](https://github.com/wagtail/bakerydemo/releases/tag/v5.0)
-- [`v4.2`](https://github.com/wagtail/bakerydemo/releases/tag/v4.2)
-- [`v4.1`](https://github.com/wagtail/bakerydemo/releases/tag/v4.1)
-- [`v4.0`](https://github.com/wagtail/bakerydemo/releases/tag/v4.0)
-- [`v3.0`](https://github.com/wagtail/bakerydemo/releases/tag/v3.0)
-- [`v2.16`](https://github.com/wagtail/bakerydemo/releases/tag/v2.16)
-
-</details>
+See the [complete tags list](https://github.com/wagtail/bakerydemo/tags) for older releases.
 
 The tags point to the last commit just before the requirements were updated to the next Wagtail version. For example, the `v4.2` tag points to the commit just before the bakerydemo was updated to use Wagtail 5.0. This ensures that the tagged demo code contains the latest updates possible for the supported version.
 
