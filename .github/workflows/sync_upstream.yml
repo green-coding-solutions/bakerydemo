@@ -35,6 +35,11 @@ jobs:
             git merge upstream/main
             git push
 
+            echo "Updating fork network-internal branch..."
+            git checkout network-internal
+            git merge upstream/main
+            git push
+
             echo "Updating fork gmt-pinned-versions branch..."
             git checkout gmt-pinned-versions
             git merge upstream/main
