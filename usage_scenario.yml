@@ -1,7 +1,7 @@
 ---
 name: Bakerydemo GOLD v2.0 benchmark
 author: Arne Tarra <arne@green-coding.io>
-description: Testing all routes of the exemplary Bakery demo Gold v2.0 Benchmark
+description: Testing all routes of the exemplary Bakery demo Gold v2.0 Benchmark with cache warming done in flow
 
 compose-file: !include docker-compose.yml
 
@@ -21,15 +21,8 @@ services:
       context: .
       dockerfile: ./Dockerfile
 
-  green-coding-puppeteer-container:
-    image: greencoding/puppeteer-chrome
-    setup-commands:
-      - cp /tmp/repo/benchmark/puppeteer/admin.js /var/www/admin.js
-      - cp /tmp/repo/benchmark/puppeteer/blog-filtering.js /var/www/blog-filtering.js
-      - cp /tmp/repo/benchmark/puppeteer/contact-us.js /var/www/contact-us.js
-      - cp /tmp/repo/benchmark/puppeteer/homepage-landing.js /var/www/homepage-landing.js
-      - cp /tmp/repo/benchmark/puppeteer/search.js /var/www/search.js
-      - cp /tmp/repo/benchmark/puppeteer/package.json /var/www/package.json
+  gcb-playwright:
+    image: greencoding/gcb_playwright:v16
 
 flow:
   - name: Migrations
@@ -59,52 +52,51 @@ flow:
         # PRs welcome!
         ignore-errors: True
 
-
   - name: Blog filtering
-    container: green-coding-puppeteer-container
+    container: gcb-playwright
     commands:
       - type: console
-        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 node /var/www/blog-filtering.js
+        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/blog-filtering.py
         shell: sh
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
 
   - name: Contact Us
-    container: green-coding-puppeteer-container
+    container: gcb-playwright
     commands:
       - type: console
-        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 node /var/www/contact-us.js
+        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/contact-us.py
         shell: sh
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
 
   - name: Homepage Landing
-    container: green-coding-puppeteer-container
+    container: gcb-playwright
     commands:
       - type: console
-        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 node /var/www/homepage-landing.js
+        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/homepage-landing.py
         shell: sh
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
 
   - name: Search
-    container: green-coding-puppeteer-container
+    container: gcb-playwright
     commands:
       - type: console
-        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 node /var/www/search.js
+        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/search.py
         shell: sh
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
 
   - name: Admin Flow
-    container: green-coding-puppeteer-container
+    container: gcb-playwright
     commands:
       - type: console
-        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 node /var/www/admin.js
+        command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/admin.py
         shell: sh
         log-stdout: True
         read-sci-stdout: True
