@@ -16,6 +16,10 @@ services:
     networks:
       - bakery-internal-network
 
+  redis:
+    networks:
+      - bakery-internal-network
+
   app:
     environment:
       WAGTAILADMIN_BASE_URL: http://app:8000/admin/
