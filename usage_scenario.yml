@@ -12,7 +12,7 @@ services:
   db:
     # we need the DB fully booted. Therefore we wait here a little
     setup-commands:
-      - sleep 10
+      - command: sleep 10
 
   app:
     environment:
