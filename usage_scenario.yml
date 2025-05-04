@@ -8,6 +8,8 @@ compose-file: !include docker-compose.yml
 sci:
   R_d: page request
 
+ignore-unsupported-compose: true
+
 services:
   db:
     # we need the DB fully booted. Therefore we wait here a little
