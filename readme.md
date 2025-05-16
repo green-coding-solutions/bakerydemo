@@ -2,7 +2,7 @@
 
 This is a demonstration project for the amazing [Wagtail CMS](https://github.com/wagtail/wagtail).
 
-The demo site is designed to provide examples of common features and recipes to introduce you to Wagtail development. Beyond the code, it will also let you explore the admin / editorial interface of the CMS.
+The demo site is designed to provide examples of common features and recipes to introduce you to Wagtail development. Beyond the code, it will also let you explore the admin/editorial interface of the CMS.
 
 Note we do _not_ recommend using this project to start your own site - the demo is intended to be a springboard to get you started. Feel free to copy code from the demo into your own project.
 
@@ -16,7 +16,7 @@ This demo is aimed primarily at developers wanting to learn more about the inter
 - Example of using a "base" app to contain misc additional functionality (e.g. Contact Form, About, etc.)
 - "StandardPage" model using mixins borrowed from other apps
 - Example of customizing the Wagtail Admin via _wagtail_hooks_
-- Example of using the Wagtail "snippets" system to represent bread categories, countries and ingredients
+- Example of using the Wagtail "snippets" system to represent bread categories, countries, and ingredients
 - Example of a custom "Galleries" feature that pulls in images used in other content types in the system
 - Example of creating ManyToMany relationships via the Ingredients feature on BreadPage
 - Lots more
