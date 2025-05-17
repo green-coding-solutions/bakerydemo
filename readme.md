@@ -2,7 +2,7 @@
 
 This is a demonstration project for the amazing [Wagtail CMS](https://github.com/wagtail/wagtail).
 
-The demo site is designed to provide examples of common features and recipes to introduce you to Wagtail development. Beyond the code, it will also let you explore the admin / editorial interface of the CMS.
+The demo site is designed to provide examples of common features and recipes to introduce you to Wagtail development. Beyond the code, it will also let you explore the admin/editorial interface of the CMS.
 
 Note we do _not_ recommend using this project to start your own site - the demo is intended to be a springboard to get you started. Feel free to copy code from the demo into your own project.
 
@@ -16,7 +16,7 @@ This demo is aimed primarily at developers wanting to learn more about the inter
 - Example of using a "base" app to contain misc additional functionality (e.g. Contact Form, About, etc.)
 - "StandardPage" model using mixins borrowed from other apps
 - Example of customizing the Wagtail Admin via _wagtail_hooks_
-- Example of using the Wagtail "snippets" system to represent bread categories, countries and ingredients
+- Example of using the Wagtail "snippets" system to represent bread categories, countries, and ingredients
 - Example of a custom "Galleries" feature that pulls in images used in other content types in the system
 - Example of creating ManyToMany relationships via the Ingredients feature on BreadPage
 - Lots more
@@ -229,10 +229,10 @@ By default, `django-csp` is not enabled since Wagtail isn't fully compatible yet
 
 The `main` branch of this demo is designed to work with both the latest stable release and the latest `main` branch (development version) of Wagtail. To run the demo against a specific version of Wagtail, we have created [git tags](https://github.com/wagtail/bakerydemo/tags) for the latest commits that work with each feature release.
 
+- [`v6.4`](https://github.com/wagtail/bakerydemo/releases/tag/v6.4)
 - [`v6.3`](https://github.com/wagtail/bakerydemo/releases/tag/v6.3)
 - [`v6.2`](https://github.com/wagtail/bakerydemo/releases/tag/v6.2)
 - [`v6.1`](https://github.com/wagtail/bakerydemo/releases/tag/v6.1)
-- [`v6.0`](https://github.com/wagtail/bakerydemo/releases/tag/v6.0)
 
 See the [complete tags list](https://github.com/wagtail/bakerydemo/tags) for older releases.
 
