@@ -1,5 +1,5 @@
 -r base.txt
-elasticsearch==5.5.3
+elasticsearch==9.0.2
 # Additional dependencies for Heroku, AWS, and Google Cloud deployment
 uwsgi==2.0.28
 psycopg[binary]==3.2.2
