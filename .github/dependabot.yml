@@ -11,9 +11,15 @@ updates:
       interval: "weekly"
     target-branch: "gmt-pinned-versions"
     open-pull-requests-limit: 30
+    allow:
+      - dependency-name: "wagtail"
+      - dependency-name: "Django"
   - package-ecosystem: "pip" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
     target-branch: "network-internal"
     open-pull-requests-limit: 30
+    allow:
+      - dependency-name: "wagtail"
+      - dependency-name: "Django"
