@@ -8,12 +8,11 @@ RUN set -ex \
     && RUN_DEPS=" \
         libexpat1 \
         libjpeg62-turbo \
-        libpcre3 \
+        libpcre2-posix3 \
         libpq5 \
-        mime-support \
+        shared-mime-info \
         postgresql-client \
         procps \
-        wget \
         zlib1g \
     " \
     && seq 1 8 | xargs -I{} mkdir -p /usr/share/man/man{} \
@@ -30,7 +29,7 @@ RUN set -ex \
         git \
         libexpat1-dev \
         libjpeg62-turbo-dev \
-        libpcre3-dev \
+        libpcre2-dev \
         libpq-dev \
         zlib1g-dev \
     " \
