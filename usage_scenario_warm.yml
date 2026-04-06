@@ -32,6 +32,11 @@ services:
     networks:
       - bakery-internal-network
     command: [ "tail", "-f", "/dev/null" ]   # keep container running
+
+  gcb-playwright:
+    image: greencoding/gcb_playwright:v16
+    networks:
+      - bakery-internal-network
 # Debug only
 #    volumes:
 #      - /tmp/.X11-unix:/tmp/.X11-unix # for debugging in non-headless mode
@@ -39,16 +44,13 @@ services:
 #       DISPLAY: ":0" # for debugging in non-headless mode
 
 
-  gcb-playwright:
-    image: greencoding/gcb_playwright:v16
-    networks:
-      - bakery-internal-network
+
 
 networks:
   bakery-internal-network:
     internal: true
 
- flow:
+flow:
   - name: Cache Warmup
     container: gcb-playwright
     hidden: true
