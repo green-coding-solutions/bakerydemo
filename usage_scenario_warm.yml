@@ -29,15 +29,15 @@ services:
     setup-commands:
       - command: /venv/bin/python manage.py migrate
       - command: /venv/bin/python manage.py load_initial_data
-      - command: wget --recursive --spider --no-directories http://app:8000/ -o warmup.log || true
-        shell: bash
-
-       # wget issues an error code 8 due to some images returning 404. We could catch the code 8 specifically, but
-        # it would not tell us if these are the known images or some other problems with the sever occured.
-        # Sadly this call is very flaky and might still show up as successful even if cache warmup did not really work :(
-        # PRs welcome!
     networks:
       - bakery-internal-network
+    command: [ "tail", "-f", "/dev/null" ]   # keep container running
+# Debug only
+#    volumes:
+#      - /tmp/.X11-unix:/tmp/.X11-unix # for debugging in non-headless mode
+#    environment:
+#       DISPLAY: ":0" # for debugging in non-headless mode
+
 
   gcb-playwright:
     image: greencoding/gcb_playwright:v16
@@ -48,7 +48,20 @@ networks:
   bakery-internal-network:
     internal: true
 
-flow:
+ flow:
+  - name: Cache Warmup
+    container: gcb-playwright
+    hidden: true
+    commands:
+      - type: console
+        command: wget --recursive --spider --no-directories http://app:8000/ -o warmup.log || { rc=$?; [ "$rc" -eq 8 ] || exit "$rc"; }
+        shell: bash
+        # wget issues an error code 8 due to some images returning 404. We co>
+        # it would not tell us if these are the known images or some other p>
+        # Sadly this call is very flaky and might still show up as successfu>
+        # PRs welcome!
+
+
   - name: Blog filtering
     container: gcb-playwright
     commands:
