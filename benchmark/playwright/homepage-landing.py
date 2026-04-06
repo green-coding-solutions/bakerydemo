@@ -18,7 +18,7 @@ with sync_playwright() as playwright:
     page.wait_for_load_state("networkidle")
 
     with page.expect_navigation(wait_until="networkidle"):
-        page.click('[href="/breads"]')
+        page.click('.navigation__desktop [href="/breads/"]')
     log_note(page.title())
     print("GMT_SCI_R=1")
 
