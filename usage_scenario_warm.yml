@@ -39,7 +39,7 @@ services:
 #    environment:
 #       DISPLAY: ":0" # for debugging in non-headless mode
 
- flow:
+flow:
   - name: Cache Warmup
     container: gcb-playwright
     hidden: true
