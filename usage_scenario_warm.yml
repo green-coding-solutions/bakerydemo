@@ -32,8 +32,22 @@ services:
 
   gcb-playwright:
     image: greencoding/gcb_playwright:v16
+    command: [ "tail", "-f", "/dev/null" ]   # keep container running
+# Only for debugging
+#    volumes:
+#      - /tmp/.X11-unix:/tmp/.X11-unix # for debugging in non-headless mode
+#    environment:
+#       DISPLAY: ":0" # for debugging in non-headless mode
 
-flow:
+ flow:
+  - name: Cache Warmup
+    container: gcb-playwright
+    hidden: true
+    commands:
+      - type: console
+        command: wget --recursive --spider --no-directories http://app:8000/ -o warmup.log || { rc=$?; [ "$rc" -eq 8 ] || exit "$rc"; }
+        shell: bash
+
   - name: Blog filtering
     container: gcb-playwright
     commands:
