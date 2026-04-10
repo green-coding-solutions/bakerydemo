@@ -31,19 +31,17 @@ services:
       - command: /venv/bin/python manage.py load_initial_data
     networks:
       - bakery-internal-network
-    command: [ "tail", "-f", "/dev/null" ]   # keep container running
 
   gcb-playwright:
     image: greencoding/gcb_playwright:v16
     networks:
       - bakery-internal-network
+    command: [ "tail", "-f", "/dev/null" ]   # keep container running
 # Debug only
 #    volumes:
 #      - /tmp/.X11-unix:/tmp/.X11-unix # for debugging in non-headless mode
 #    environment:
 #       DISPLAY: ":0" # for debugging in non-headless mode
-
-
 
 
 networks:
