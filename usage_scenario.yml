@@ -5,8 +5,10 @@ description: Testing all routes of the exemplary Bakery demo Gold v2.0 Benchmark
 
 compose-file: !include docker-compose.yml
 
-sci:
-  R_d: page request
+custom_metrics:
+  page_requests:
+    unit: page request
+    regex: ^(\d+) GMT_SCI_R=(\d+)$
 
 ignore-unsupported-compose: true
 
