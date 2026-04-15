@@ -11,7 +11,7 @@ with sync_playwright() as playwright:
 
     page.goto(os.environ['USAGE_SCENARIO_DOMAIN'], wait_until="networkidle")
     log_note(page.title())
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     page.wait_for_timeout(3000)
     page.locator('footer').scroll_into_view_if_needed()
@@ -23,7 +23,7 @@ with sync_playwright() as playwright:
         search.press('Enter')
 
     log_note(page.title())
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     page.wait_for_timeout(3000)
     page.locator('footer').scroll_into_view_if_needed()
@@ -32,6 +32,6 @@ with sync_playwright() as playwright:
     with page.expect_navigation(wait_until="networkidle"):
         page.click('[href="/blog/icelandic-baking/"]')
     log_note(page.title())
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     browser.close()

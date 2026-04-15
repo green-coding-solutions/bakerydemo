@@ -12,7 +12,7 @@ with sync_playwright() as playwright:
 
     page.goto(f"{os.environ['USAGE_SCENARIO_DOMAIN']}/admin/login/", wait_until="networkidle")
     log_note(page.title())
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     page.fill('#id_username', 'admin')
     page.fill('#id_password', 'changeme')
@@ -22,7 +22,7 @@ with sync_playwright() as playwright:
     page.wait_for_load_state('networkidle')
 
     log_note(page.title())
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     page.click('[href="/admin/pages/60/"]')
     page.wait_for_load_state('networkidle')
@@ -31,7 +31,7 @@ with sync_playwright() as playwright:
     page.click('[href="/admin/pages/61/"]')
     page.wait_for_load_state('networkidle')
     log_note(page.title())
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     page.click('[href="/admin/pages/77/edit/"]')
     page.wait_for_load_state('load', timeout=15000)

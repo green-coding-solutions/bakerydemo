@@ -11,7 +11,7 @@ with sync_playwright() as playwright:
 
     page.goto(os.environ['USAGE_SCENARIO_DOMAIN'] + "/contact-us/", wait_until="networkidle")
     log_note(page.title())
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     page.wait_for_timeout(3000)
     page.locator('footer').scroll_into_view_if_needed()
@@ -24,7 +24,7 @@ with sync_playwright() as playwright:
 
     with page.expect_navigation(wait_until='networkidle'):
         page.locator('[type="submit"]').press('Enter')
-    print("GMT_SCI_R=1")
+    log_note("GMT_SCI_R=1")
 
     page.wait_for_timeout(3000)
     page.locator('footer').scroll_into_view_if_needed()

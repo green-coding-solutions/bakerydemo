@@ -13,7 +13,7 @@ def main():
 
         page.goto(f"{domain}/blog/", wait_until="networkidle")
         log_note(page.title())
-        print("GMT_SCI_R=1")
+        log_note("GMT_SCI_R=1")
 
         page.wait_for_timeout(3000)
         page.locator("footer").scroll_into_view_if_needed()
@@ -22,7 +22,7 @@ def main():
         page.click('[href="/blog/tags/dessert/"]')
         page.wait_for_load_state("networkidle")
         log_note(page.title())
-        print("GMT_SCI_R=1")
+        log_note("GMT_SCI_R=1")
 
         page.wait_for_timeout(3000)
         page.locator("footer").scroll_into_view_if_needed()
@@ -31,7 +31,7 @@ def main():
         page.click('[href="/blog/desserts-benefits/"]')
         page.wait_for_load_state("networkidle")
         log_note(page.title())
-        print("GMT_SCI_R=1")
+        log_note("GMT_SCI_R=1")
 
         page.wait_for_timeout(3000)
         page.locator("footer").scroll_into_view_if_needed()
