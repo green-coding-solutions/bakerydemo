@@ -45,9 +45,9 @@ RUN set -ex \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $BUILD_DEPS \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /code/
-WORKDIR /code/
 ADD . /code/
+WORKDIR /code/
+
 ENV PORT=8000
 EXPOSE 8000
 
