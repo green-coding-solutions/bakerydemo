@@ -1,4 +1,4 @@
-Django==6.0.5
+Django==6.0.6
 python-dotenv>=1.2.1,<2
 wagtail==7.4.1
 wagtail-font-awesome-svg>=1,<2
