@@ -9,6 +9,7 @@ custom_metrics:
   page_requests:
     unit: page request
     regex: ^(\d+) GMT_SCI_R=(\d+)$
+    sci: True
 
 services:
   db:
