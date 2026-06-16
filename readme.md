@@ -117,13 +117,17 @@ You can run the Wagtail demo locally without setting up Vagrant or Docker and si
 
 - Python 3.10+
 - [venv](https://docs.python.org/3/library/venv.html)
+- Optionally, [uv](https://docs.astral.sh/uv/getting-started/installation/) as a faster alternative to venv & pip
 
 ### Installation
 
 On GNU/Linux or macOS (bash):
 
 ```bash
+# Using Python's venv:
 python -m venv .venv
+# Or using uv:
+uv venv .venv
 source .venv/bin/activate
 ```
 
@@ -141,12 +145,15 @@ On Windows, activate the virtual environment using the appropriate command for y
 > - allow scripts in PowerShell for your user account:
 >   `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
 
-Now we're ready to set up the bakery demo project itself:
+Now we're ready to set up the bakerydemo project itself:
 ```bash
 cd ~/dev [or your preferred dev directory]
 git clone https://github.com/wagtail/bakerydemo.git
 cd bakerydemo
+# Using pip:
 pip install -r requirements/development.txt
+# Or using uv:
+uv pip install -r requirements/development.txt
 ```
 
 Next, we need to create the files `.env` and `bakerydemo/settings/local.py`, which provide a place for local configuration settings that need to be kept outside of version control. No such settings are required for a standard installation, but warnings will be displayed if these files are not present:
