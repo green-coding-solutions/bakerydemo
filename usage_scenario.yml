@@ -62,7 +62,7 @@ flow:
     commands:
       - type: console
         command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/blog-filtering.py
-        shell: sh
+        shell: bash
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
@@ -72,7 +72,7 @@ flow:
     commands:
       - type: console
         command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/contact-us.py
-        shell: sh
+        shell: bash
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
@@ -82,7 +82,7 @@ flow:
     commands:
       - type: console
         command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/homepage-landing.py
-        shell: sh
+        shell: bash
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
@@ -92,7 +92,7 @@ flow:
     commands:
       - type: console
         command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/search.py
-        shell: sh
+        shell: bash
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
@@ -102,7 +102,7 @@ flow:
     commands:
       - type: console
         command:  USAGE_SCENARIO_DOMAIN=http://app:8000 python3 /tmp/repo/benchmark/playwright/admin.py
-        shell: sh
+        shell: bash
         log-stdout: True
         read-sci-stdout: True
         read-notes-stdout: True
